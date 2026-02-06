@@ -199,6 +199,9 @@
     </div>
   </div>
   
+  <!-- Hidden canvas to prevent webOS screensaver -->
+  <canvas id="keepAwake" width="1" height="1" style="position:fixed;top:-10px;left:-10px;opacity:0.01;pointer-events:none;"></canvas>
+  
   <script>
     function updateTime() {
       const now = new Date();
@@ -209,6 +212,31 @@
       });
     }
     updateTime();
+    
+    // Screensaver prevention: animate a hidden canvas pixel
+    // webOS detects this as active content and won't trigger screensaver
+    (function keepAwake() {
+      const canvas = document.getElementById('keepAwake');
+      const ctx = canvas.getContext('2d');
+      let frame = 0;
+      
+      function tick() {
+        // Alternate pixel color to create "activity"
+        ctx.fillStyle = frame % 2 ? '#000001' : '#000002';
+        ctx.fillRect(0, 0, 1, 1);
+        frame++;
+      }
+      
+      // Tick every 30 seconds (frequent enough to prevent screensaver)
+      tick();
+      setInterval(tick, 30000);
+      
+      // Also use requestAnimationFrame for continuous activity signal
+      function animate() {
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
   </script>
 </body>
 </html>
