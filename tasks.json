@@ -1,0 +1,64 @@
+{
+  "kids": [
+    { "name": "Magnus", "age": 9, "canRead": true, "color": "#4CAF50" },
+    { "name": "Samson", "age": 8, "canRead": true, "color": "#2196F3" },
+    { "name": "Gideon", "age": 6, "canRead": false, "color": "#FF9800" },
+    { "name": "Sigrid", "age": 4, "canRead": false, "color": "#E91E63" }
+  ],
+  "tasks": {
+    "Magnus": {
+      "morning": [
+        { "id": "bed", "text": "Make bed", "icon": "🛏️" },
+        { "id": "dishes-am", "text": "Dishes", "icon": "🍽️" }
+      ],
+      "afterSchool": [
+        { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
+        { "id": "homework", "text": "Do homework", "icon": "📚" },
+        { "id": "piano", "text": "Piano practice", "icon": "🎹" }
+      ],
+      "evening": [
+        { "id": "dishes-pm", "text": "Dishes", "icon": "🍽️" },
+        { "id": "sinus", "text": "Sinus rinse", "icon": "👃" }
+      ]
+    },
+    "Samson": {
+      "morning": [
+        { "id": "bed", "text": "Make bed", "icon": "🛏️" }
+      ],
+      "afterSchool": [
+        { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
+        { "id": "homework", "text": "Do homework", "icon": "📚" },
+        { "id": "piano", "text": "Piano practice", "icon": "🎹" }
+      ],
+      "evening": []
+    },
+    "Gideon": {
+      "morning": [
+        { "id": "bed", "text": "Bed", "icon": "🛏️" }
+      ],
+      "afterSchool": [
+        { "id": "backpack", "text": "Backpack", "icon": "🎒" }
+      ],
+      "evening": []
+    },
+    "Sigrid": {
+      "morning": [
+        { "id": "bed", "text": "Bed", "icon": "🛏️" }
+      ],
+      "afterSchool": [
+        { "id": "backpack", "text": "Backpack", "icon": "🎒" }
+      ],
+      "evening": []
+    }
+  },
+  "todayTasks": {
+    "description": "One-off tasks keyed by YYYY-MM-DD",
+    "2026-02-05": {}
+  },
+  "notes": {
+    "pending": [
+      "Exercises - Mike wants to start doing with them",
+      "Other tasks Mike is forgetting"
+    ]
+  }
+}

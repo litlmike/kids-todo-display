@@ -1,0 +1,15 @@
+# Local TV control files (not for web hosting)
+lgtv_config.json
+trigger.py
+test_lg.py
+
+# Docker (local hosting alternative)
+docker-compose.yml
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

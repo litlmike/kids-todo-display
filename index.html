@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids To-Do List</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: white;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    
+    .kid-column {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .kid-header {
+      text-align: center;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .section-title {
+      font-size: 1.2rem;
+      margin: 15px 0 10px 0;
+      padding-bottom: 5px;
+      border-bottom: 2px solid rgba(255,255,255,0.3);
+      opacity: 0.8;
+    }
+    
+    .task {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      margin: 8px 0;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      transition: transform 0.2s;
+    }
+    
+    .task:hover {
+      transform: scale(1.02);
+    }
+    
+    .task-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    /* For readers: show text */
+    .can-read .task-text {
+      font-size: 1.4rem;
+    }
+    
+    /* For non-readers: bigger icons, smaller/hidden text */
+    .cannot-read .task-icon {
+      font-size: 3rem;
+      margin-right: 10px;
+    }
+    
+    .cannot-read .task-text {
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+    
+    .checkbox {
+      width: 30px;
+      height: 30px;
+      border: 3px solid white;
+      border-radius: 8px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .today-section {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 3px dashed rgba(255,255,255,0.3);
+    }
+    
+    .no-tasks {
+      text-align: center;
+      opacity: 0.6;
+      font-style: italic;
+      padding: 20px;
+    }
+    
+    /* Kid-specific colors */
+    .magnus .kid-header { background: #4CAF50; }
+    .samson .kid-header { background: #2196F3; }
+    .gideon .kid-header { background: #FF9800; }
+    .sigrid .kid-header { background: #E91E63; }
+    
+    .time-display {
+      text-align: center;
+      font-size: 1.5rem;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="time-display" id="time"></div>
+  <h1>📋 After School To-Do List 📋</h1>
+  
+  <div class="container">
+    <!-- Magnus (9, can read) -->
+    <div class="kid-column magnus can-read">
+      <div class="kid-header">Magnus</div>
+      <div class="section-title">🌅 Morning</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🛏️</span><span class="task-text">Make bed</span></div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🍽️</span><span class="task-text">Dishes</span></div>
+      
+      <div class="section-title">🌆 After School</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🎒</span><span class="task-text">Put away backpack</span></div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">📚</span><span class="task-text">Do homework</span></div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🎹</span><span class="task-text">Piano practice</span></div>
+      
+      <div class="section-title">🌙 Evening</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🍽️</span><span class="task-text">Dishes</span></div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">👃</span><span class="task-text">Sinus rinse</span></div>
+      
+      <div class="today-section">
+        <div class="section-title">⭐ Today</div>
+        <div class="no-tasks">No extra tasks today!</div>
+      </div>
+    </div>
+    
+    <!-- Samson (8, can read) -->
+    <div class="kid-column samson can-read">
+      <div class="kid-header">Samson</div>
+      <div class="section-title">🌅 Morning</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🛏️</span><span class="task-text">Make bed</span></div>
+      
+      <div class="section-title">🌆 After School</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🎒</span><span class="task-text">Put away backpack</span></div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">📚</span><span class="task-text">Do homework</span></div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🎹</span><span class="task-text">Piano practice</span></div>
+      
+      <div class="today-section">
+        <div class="section-title">⭐ Today</div>
+        <div class="no-tasks">No extra tasks today!</div>
+      </div>
+    </div>
+    
+    <!-- Gideon (6, cannot read - bigger icons) -->
+    <div class="kid-column gideon cannot-read">
+      <div class="kid-header">Gideon</div>
+      <div class="section-title">🌅 Morning</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🛏️</span><span class="task-text">Bed</span></div>
+      
+      <div class="section-title">🌆 After School</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🎒</span><span class="task-text">Backpack</span></div>
+      
+      <div class="today-section">
+        <div class="section-title">⭐ Today</div>
+        <div class="no-tasks">✨</div>
+      </div>
+    </div>
+    
+    <!-- Sigrid (4, cannot read - biggest icons) -->
+    <div class="kid-column sigrid cannot-read">
+      <div class="kid-header">Sigrid</div>
+      <div class="section-title">🌅 Morning</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🛏️</span><span class="task-text">Bed</span></div>
+      
+      <div class="section-title">🌆 After School</div>
+      <div class="task"><div class="checkbox"></div><span class="task-icon">🎒</span><span class="task-text">Backpack</span></div>
+      
+      <div class="today-section">
+        <div class="section-title">⭐ Today</div>
+        <div class="no-tasks">✨</div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Update time display
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('time').textContent = now.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+    updateTime();
+  </script>
+</body>
+</html>
