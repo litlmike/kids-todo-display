@@ -19,6 +19,7 @@
     },
     "Samson": {
       "afterSchool": [
+        { "id": "pullup", "text": "Throw away pull-up", "icon": "🩲" },
         { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
         { "id": "homework", "text": "Do homework", "icon": "📚" },
         { "id": "piano", "text": "Piano practice", "icon": "🎹" }
