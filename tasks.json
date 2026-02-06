@@ -23,7 +23,12 @@
         { "id": "homework", "text": "Do homework", "icon": "📚" },
         { "id": "piano", "text": "Piano practice", "icon": "🎹" }
       ],
-      "evening": []
+      "evening": [
+        { "id": "trash", "text": "Empty trash cans + new bag", "icon": "🗑️" }
+      ],
+      "monday": [
+        { "id": "trash-street", "text": "Take trash cans to street", "icon": "🏠" }
+      ]
     },
     "Gideon": {
       "afterSchool": [
