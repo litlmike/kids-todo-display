@@ -38,7 +38,8 @@
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
       "evening": [
-        { "id": "clear-table", "text": "Dishes in sink", "icon": "🍽️" }
+        { "id": "clear-table", "text": "Dishes in sink", "icon": "🍽️" },
+        { "id": "reading", "text": "Read a book", "icon": "📖" }
       ]
     },
     "Sigrid": {
