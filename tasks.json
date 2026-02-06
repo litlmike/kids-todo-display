@@ -7,10 +7,6 @@
   ],
   "tasks": {
     "Magnus": {
-      "morning": [
-        { "id": "bed", "text": "Make bed", "icon": "🛏️" },
-        { "id": "dishes-am", "text": "Dishes", "icon": "🍽️" }
-      ],
       "afterSchool": [
         { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
         { "id": "homework", "text": "Do homework", "icon": "📚" },
@@ -22,9 +18,6 @@
       ]
     },
     "Samson": {
-      "morning": [
-        { "id": "bed", "text": "Make bed", "icon": "🛏️" }
-      ],
       "afterSchool": [
         { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
         { "id": "homework", "text": "Do homework", "icon": "📚" },
@@ -33,18 +26,12 @@
       "evening": []
     },
     "Gideon": {
-      "morning": [
-        { "id": "bed", "text": "Bed", "icon": "🛏️" }
-      ],
       "afterSchool": [
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
       "evening": []
     },
     "Sigrid": {
-      "morning": [
-        { "id": "bed", "text": "Bed", "icon": "🛏️" }
-      ],
       "afterSchool": [
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
