@@ -13,6 +13,7 @@
         { "id": "piano", "text": "Piano practice", "icon": "🎹" }
       ],
       "evening": [
+        { "id": "clear-table", "text": "Clear table, dishes in sink", "icon": "🍽️" },
         { "id": "dishes-pm", "text": "Dishes", "icon": "🍽️" },
         { "id": "sinus", "text": "Sinus rinse", "icon": "👃" }
       ]
@@ -25,6 +26,7 @@
         { "id": "piano", "text": "Piano practice", "icon": "🎹" }
       ],
       "evening": [
+        { "id": "clear-table", "text": "Clear table, dishes in sink", "icon": "🍽️" },
         { "id": "trash", "text": "Empty trash cans + new bag", "icon": "🗑️" }
       ],
       "monday": [
@@ -35,13 +37,17 @@
       "afterSchool": [
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
-      "evening": []
+      "evening": [
+        { "id": "clear-table", "text": "Dishes in sink", "icon": "🍽️" }
+      ]
     },
     "Sigrid": {
       "afterSchool": [
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
-      "evening": []
+      "evening": [
+        { "id": "clear-table", "text": "Dishes in sink", "icon": "🍽️" }
+      ]
     }
   },
   "todayTasks": {
