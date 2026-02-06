@@ -8,6 +8,7 @@
   "tasks": {
     "Magnus": {
       "afterSchool": [
+        { "id": "shoes", "text": "Shoes on shelf", "icon": "👟" },
         { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
         { "id": "homework", "text": "Do homework", "icon": "📚" },
         { "id": "piano", "text": "Piano practice", "icon": "🎹" }
@@ -21,6 +22,7 @@
     "Samson": {
       "afterSchool": [
         { "id": "pullup", "text": "Throw away pull-up", "icon": "🩲" },
+        { "id": "shoes", "text": "Shoes on shelf", "icon": "👟" },
         { "id": "backpack", "text": "Put away backpack", "icon": "🎒" },
         { "id": "homework", "text": "Do homework", "icon": "📚" },
         { "id": "piano", "text": "Piano practice", "icon": "🎹" }
@@ -35,6 +37,7 @@
     },
     "Gideon": {
       "afterSchool": [
+        { "id": "shoes", "text": "Shoes on shelf", "icon": "👟" },
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
       "evening": [
@@ -44,6 +47,7 @@
     },
     "Sigrid": {
       "afterSchool": [
+        { "id": "shoes", "text": "Shoes on shelf", "icon": "👟" },
         { "id": "backpack", "text": "Backpack", "icon": "🎒" }
       ],
       "evening": [
