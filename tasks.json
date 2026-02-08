@@ -65,7 +65,8 @@
         {"text": "Pick up the playroom", "icon": "🧸"},
         {"text": "Pick up the hallway", "icon": "🧹"},
         {"text": "Pick up the kitchen floor", "icon": "🍳"},
-        {"text": "Take out the trash", "icon": "♻️"}
+        {"text": "Take out the trash", "icon": "♻️"},
+        {"text": "Clean up the backyard", "icon": "🌳"}
       ]
     }
   },
