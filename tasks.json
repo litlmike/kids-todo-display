@@ -57,7 +57,17 @@
   },
   "todayTasks": {
     "description": "One-off tasks keyed by YYYY-MM-DD",
-    "2026-02-05": {}
+    "2026-02-05": {},
+    "2026-02-08": {
+      "Everyone": [
+        {"text": "Move shelving to the bedroom", "icon": "🏗️"},
+        {"text": "Get the trash out of the room", "icon": "🗑️"},
+        {"text": "Pick up the playroom", "icon": "🧸"},
+        {"text": "Pick up the hallway", "icon": "🧹"},
+        {"text": "Pick up the kitchen floor", "icon": "🍳"},
+        {"text": "Take out the trash", "icon": "♻️"}
+      ]
+    }
   },
   "notes": {
     "pending": [
