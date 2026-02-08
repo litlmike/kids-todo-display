@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Jobs</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      height: 100vh;
+      padding: 30px;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 900px;
+    }
+    .task {
+      display: flex;
+      align-items: center;
+      padding: 18px 24px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 15px;
+      font-size: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    .task-num {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-right: 20px;
+      opacity: 0.6;
+      min-width: 50px;
+      text-align: center;
+    }
+    .task-icon {
+      font-size: 2.4rem;
+      margin-right: 16px;
+    }
+    .time-display {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="time-display" id="time"></div>
+  <h1>🏠 Today's Jobs 🏠</h1>
+  <div class="tasks">
+    <div class="task"><span class="task-num">1</span><span class="task-icon">🏗️</span> Move shelving to the bedroom</div>
+    <div class="task"><span class="task-num">2</span><span class="task-icon">🗑️</span> Get the trash out of the room</div>
+    <div class="task"><span class="task-num">3</span><span class="task-icon">🧸</span> Pick up the playroom</div>
+    <div class="task"><span class="task-num">4</span><span class="task-icon">🧹</span> Pick up the hallway</div>
+    <div class="task"><span class="task-num">5</span><span class="task-icon">🍳</span> Pick up the kitchen floor</div>
+    <div class="task"><span class="task-num">6</span><span class="task-icon">♻️</span> Take out the trash</div>
+    <div class="task"><span class="task-num">7</span><span class="task-icon">🌳</span> Clean up the backyard</div>
+  </div>
+
+  <!-- Keep-alive pixel trick -->
+  <canvas id="keepAwake" width="1" height="1" style="position:fixed;top:-10px;left:-10px;opacity:0.01;pointer-events:none;"></canvas>
+  <script>
+    document.getElementById('time').textContent = new Date().toLocaleDateString('en-US', {weekday:'long',month:'long',day:'numeric'});
+    (function(){
+      const ctx = document.getElementById('keepAwake').getContext('2d');
+      let f = 0;
+      setInterval(() => { ctx.fillStyle = f++ % 2 ? '#000001' : '#000002'; ctx.fillRect(0,0,1,1); }, 30000);
+      (function a() { requestAnimationFrame(a); })();
+    })();
+  </script>
+</body>
+</html>
