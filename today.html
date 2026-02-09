@@ -1,50 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Today's Jobs</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #fff; font-family: 'Segoe UI', Arial, sans-serif;
-  display: flex; justify-content: center; align-items: center;
-  min-height: 100vh; padding: 40px;
-}
-.container { max-width: 900px; width: 100%; }
-h1 { text-align: center; font-size: 3em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-.tasks { display: flex; flex-direction: column; gap: 14px; }
-.task {
-  background: rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px;
-  display: flex; align-items: center; gap: 16px; font-size: 1.6em;
-  backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);
-  transition: transform 0.2s;
-}
-.task:hover { transform: scale(1.02); }
-.task-num {
-  background: #ff6b6b; color: #fff; width: 40px; height: 40px;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-weight: bold; font-size: 0.9em; flex-shrink: 0;
-}
-.task-icon { font-size: 1.3em; }
-.assign { color: #ffd93d; font-weight: bold; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunday Morning Jobs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      height: 100vh;
+      padding: 15px;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .tasks {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .task {
+      display: flex;
+      align-items: center;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      transition: transform 0.2s;
+      backdrop-filter: blur(10px);
+    }
+    
+    .task:hover { transform: scale(1.02); }
+    
+    .checkbox {
+      width: 28px;
+      height: 28px;
+      border: 2px solid white;
+      border-radius: 8px;
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
+    
+    .task-num {
+      background: #ff6b6b;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-right: 14px;
+    }
+    
+    .task-icon {
+      font-size: 1.6rem;
+      margin-right: 14px;
+      min-width: 40px;
+      text-align: center;
+    }
+    
+    .task-text {
+      font-size: 1.4rem;
+    }
+    
+    .assign {
+      color: #ffd93d;
+      font-weight: bold;
+    }
+    
+    .time-display {
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<h1>🏠 Sunday Morning Jobs 🏠</h1>
-<div class="tasks">
-<div class="task"><span class="task-num">1</span><span class="task-icon">🥚</span> Crack 8 eggs</div>
-<div class="task"><span class="task-num">2</span><span class="task-icon">🍞</span> Turn on Mommy's oven to TOAST</div>
-<div class="task"><span class="task-num">3</span><span class="task-icon">🧹</span> Clean Rumor's floor</div>
-<div class="task"><span class="task-num">4</span><span class="task-icon">🗑️</span> Take trash cans to the street</div>
-<div class="task"><span class="task-num">5</span><span class="task-icon">🍽️</span> <span class="assign">Magnus:</span> Dishes</div>
-<div class="task"><span class="task-num">6</span><span class="task-icon">🗑️</span> <span class="assign">Samson:</span> Trash bags</div>
-<div class="task"><span class="task-num">7</span><span class="task-icon">💥</span> <span class="assign">Gideon:</span> SMASH</div>
-</div>
-</div>
-<canvas id="k" width="1" height="1" style="position:fixed;top:0;left:0;opacity:0.01"></canvas>
-<script>setInterval(()=>{const c=document.getElementById('k').getContext('2d');c.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16);c.fillRect(0,0,1,1)},30000);</script>
+  <div class="time-display" id="time"></div>
+  <h1>🏠 Sunday Morning Jobs 🏠</h1>
+  
+  <div class="tasks">
+    <div class="task"><div class="checkbox"></div><span class="task-num">1</span><span class="task-icon">🥚</span><span class="task-text">Crack 8 eggs</span></div>
+    <div class="task"><div class="checkbox"></div><span class="task-num">2</span><span class="task-icon">🍞</span><span class="task-text">Turn on Mommy's oven to TOAST</span></div>
+    <div class="task"><div class="checkbox"></div><span class="task-num">3</span><span class="task-icon">🧹</span><span class="task-text">Clean Rumor's floor</span></div>
+    <div class="task"><div class="checkbox"></div><span class="task-num">4</span><span class="task-icon">🗑️</span><span class="task-text">Take trash cans to the street</span></div>
+    <div class="task"><div class="checkbox"></div><span class="task-num">5</span><span class="task-icon">🍽️</span><span class="task-text"><span class="assign">Magnus:</span> Dishes</span></div>
+    <div class="task"><div class="checkbox"></div><span class="task-num">6</span><span class="task-icon">🗑️</span><span class="task-text"><span class="assign">Samson:</span> Trash bags</span></div>
+    <div class="task"><div class="checkbox"></div><span class="task-num">7</span><span class="task-icon">💥</span><span class="task-text"><span class="assign">Gideon:</span> SMASH</span></div>
+  </div>
+  
+  <!-- Hidden canvas to prevent webOS screensaver -->
+  <canvas id="keepAwake" width="1" height="1" style="position:fixed;top:-10px;left:-10px;opacity:0.01;pointer-events:none;"></canvas>
+  
+  <script>
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('time').textContent = now.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+    updateTime();
+    
+    // Screensaver prevention - matches index.html pattern exactly
+    (function keepAwake() {
+      const canvas = document.getElementById('keepAwake');
+      const ctx = canvas.getContext('2d');
+      let frame = 0;
+      
+      function tick() {
+        ctx.fillStyle = frame % 2 ? '#000001' : '#000002';
+        ctx.fillRect(0, 0, 1, 1);
+        frame++;
+      }
+      
+      tick();
+      setInterval(tick, 30000);
+      
+      // requestAnimationFrame for continuous activity signal
+      function animate() {
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+  </script>
 </body>
 </html>
