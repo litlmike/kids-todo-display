@@ -1,152 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunday Morning Jobs</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Segoe UI', 'Comic Sans MS', sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      height: 100vh;
-      padding: 15px;
-      color: white;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    
-    .tasks {
-      max-width: 800px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .task {
-      display: flex;
-      align-items: center;
-      padding: 14px 20px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 12px;
-      transition: transform 0.2s;
-      backdrop-filter: blur(10px);
-    }
-    
-    .task:hover { transform: scale(1.02); }
-    
-    .checkbox {
-      width: 28px;
-      height: 28px;
-      border: 2px solid white;
-      border-radius: 8px;
-      margin-right: 14px;
-      flex-shrink: 0;
-    }
-    
-    .task-num {
-      background: #ff6b6b;
-      color: #fff;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      margin-right: 14px;
-    }
-    
-    .task-icon {
-      font-size: 1.6rem;
-      margin-right: 14px;
-      min-width: 40px;
-      text-align: center;
-    }
-    
-    .task-text {
-      font-size: 1.4rem;
-    }
-    
-    .assign {
-      color: #ffd93d;
-      font-weight: bold;
-    }
-    
-    .time-display {
-      text-align: center;
-      font-size: 1rem;
-      opacity: 0.7;
-      margin-bottom: 5px;
-    }
-  </style>
-</head>
-<body>
-  <div class="time-display" id="time"></div>
-  <h1>🏠 Sunday Morning Jobs 🏠</h1>
-  
-  <div class="tasks">
-    <div class="task"><div class="checkbox"></div><span class="task-num">1</span><span class="task-icon">🧹</span><span class="task-text">Clean the floors</span></div>
-    <div class="task"><div class="checkbox"></div><span class="task-num">2</span><span class="task-icon">🍽️</span><span class="task-text">Do the dishes</span></div>
-    <div class="task"><div class="checkbox"></div><span class="task-num">3</span><span class="task-icon">🗑️</span><span class="task-text">Take out the trash in the kitchen</span></div>
-    <div class="task"><div class="checkbox"></div><span class="task-num">4</span><span class="task-icon">✨</span><span class="task-text">Clean the table</span></div>
-    <div class="task"><div class="checkbox"></div><span class="task-num">5</span><span class="task-icon">🧺</span><span class="task-text">Clean laundry room floor</span></div>
-    <div class="task"><div class="checkbox"></div><span class="task-num">6</span><span class="task-icon">🫧</span><span class="task-text">Fold towels</span></div>
-  </div>
-  
-  <!-- Hidden canvas to prevent webOS screensaver -->
-  <canvas id="keepAwake" width="1" height="1" style="position:fixed;top:-10px;left:-10px;opacity:0.01;pointer-events:none;"></canvas>
-  
-  <script>
-    function updateTime() {
-      const now = new Date();
-      document.getElementById('time').textContent = now.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        month: 'long', 
-        day: 'numeric' 
-      });
-    }
-    updateTime();
-    
-    // Screensaver prevention - matches index.html pattern exactly
-    (function keepAwake() {
-      const canvas = document.getElementById('keepAwake');
-      const ctx = canvas.getContext('2d');
-      let frame = 0;
-      
-      function tick() {
-        ctx.fillStyle = frame % 2 ? '#000001' : '#000002';
-        ctx.fillRect(0, 0, 1, 1);
-        frame++;
-      }
-      
-      tick();
-      setInterval(tick, 30000);
-      
-      // requestAnimationFrame for continuous activity signal
-      function animate() {
-        requestAnimationFrame(animate);
-      }
-      animate();
-    })();
-  </script>
-</body>
-</html>
+<html><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#fff;font-family:'Segoe UI',Arial,sans-serif;
+display:flex;flex-direction:column;align-items:center;justify-content:center;
+min-height:100vh;padding:40px}
+h1{font-size:64px;margin-bottom:40px}
+.tasks{display:flex;flex-direction:column;gap:20px;width:80%;max-width:900px}
+.task{background:#16213e;border-radius:16px;padding:24px 32px;font-size:36px;
+display:flex;align-items:center;gap:20px}
+.task-num{background:#0f3460;border-radius:50%;width:50px;height:50px;
+display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
+.task-icon{font-size:40px}
+</style></head><body>
+<h1>🏠 Today's Jobs 🏠</h1>
+<div class="tasks">
+  <div class="task"><span class="task-num">1</span><span class="task-icon">🧹</span> Clean the floors</div>
+  <div class="task"><span class="task-num">2</span><span class="task-icon">🗑️</span> Empty Daddy's trash cans</div>
+  <div class="task"><span class="task-num">3</span><span class="task-icon">🗑️</span> Bring the trash cans in from the street</div>
+  <div class="task"><span class="task-num">4</span><span class="task-icon">🍳</span> Clean the kitchen floor</div>
+  <div class="task"><span class="task-num">5</span><span class="task-icon">🛏️</span> Clean your bedroom floor</div>
+  <div class="task"><span class="task-num">6</span><span class="task-icon">🚿</span> Clean the bathroom floor</div>
+  <div class="task"><span class="task-num">7</span><span class="task-icon">🍽️</span> Do the dishes</div>
+  <div class="task"><span class="task-num">8</span><span class="task-icon">😴</span> 8-hour timer — SLEEP</div>
+  <div class="task"><span class="task-num">⭐</span><span class="task-icon">💪</span> Stay awesome!</div>
+</div>
+<canvas id="k" width="1" height="1" style="position:fixed;top:0;left:0;opacity:0.01"></canvas>
+<script>
+// Screensaver prevention (canvas pixel trick)
+var c=document.getElementById('k').getContext('2d');
+setInterval(function(){c.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16);c.fillRect(0,0,1,1);},30000);
+</script>
+</body></html>
