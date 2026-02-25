@@ -9,50 +9,25 @@ h1{font-size:48px;margin-bottom:24px}
 .tasks{display:flex;flex-direction:column;gap:10px;width:80%;max-width:900px}
 .task{background:#16213e;border-radius:12px;padding:14px 24px;font-size:28px;
 display:flex;align-items:center;gap:16px}
+.task.done{opacity:0.4;text-decoration:line-through}
 .task-num{background:#0f3460;border-radius:50%;width:40px;height:40px;
 display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:22px}
+.task.done .task-num{background:#1a5c2a}
 .task-icon{font-size:32px}
 </style></head><body>
 <h1>🏠 Today's Jobs 🏠</h1>
 <div class="tasks">
   <div class="task"><span class="task-num">1</span><span class="task-icon">🧹</span> Clean the floors</div>
   <div class="task"><span class="task-num">2</span><span class="task-icon">🗑️</span> Empty Daddy's trash cans</div>
-  <div class="task"><span class="task-num">3</span><span class="task-icon">🗑️</span> Bring the trash cans in from the street</div>
+  <div class="task done"><span class="task-num">✅</span><span class="task-icon">🗑️</span> Bring the trash cans in from the street</div>
   <div class="task"><span class="task-num">4</span><span class="task-icon">🍳</span> Clean the kitchen floor</div>
   <div class="task"><span class="task-num">5</span><span class="task-icon">🛏️</span> Clean your bedroom floor</div>
   <div class="task"><span class="task-num">6</span><span class="task-icon">🚿</span> Clean the bathroom floor</div>
-  <div class="task"><span class="task-num">7</span><span class="task-icon">🍽️</span> Do the dishes — set the 8-hour timer (sleep mode)</div>
+  <div class="task done"><span class="task-num">✅</span><span class="task-icon">🍽️</span> Do the dishes — set the 8-hour timer (sleep mode)</div>
   <div class="task"><span class="task-num">⭐</span><span class="task-icon">💪</span> Stay awesome!</div>
 </div>
-<!-- Screensaver prevention: video + canvas + mouse movement -->
-<video id="v" muted playsinline loop style="position:fixed;top:-1px;left:-1px;width:1px;height:1px;opacity:0.01"></video>
-<canvas id="k" width="2" height="2" style="position:fixed;top:0;left:0;opacity:0.01"></canvas>
+<!-- Screensaver prevention: auto-reload every 45 seconds -->
 <script>
-// Method 1: Canvas pixel changes every 10s
-var c=document.getElementById('k').getContext('2d');
-setInterval(function(){
-  c.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16).padStart(6,'0');
-  c.fillRect(0,0,2,2);
-},10000);
-
-// Method 2: Tiny video with generated frames (strongest anti-screensaver)
-try{
-  var v=document.getElementById('v');
-  var vc=document.createElement('canvas');vc.width=2;vc.height=2;
-  var vctx=vc.getContext('2d');
-  var stream=vc.captureStream(1);
-  v.srcObject=stream;
-  v.play().catch(function(){});
-  setInterval(function(){
-    vctx.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16).padStart(6,'0');
-    vctx.fillRect(0,0,2,2);
-  },5000);
-}catch(e){}
-
-// Method 3: Simulate user interaction via focus cycling
-setInterval(function(){
-  window.focus();
-  document.body.click();
-},15000);
+setTimeout(function(){ location.reload(); }, 45000);
 </script>
 </body></html>
