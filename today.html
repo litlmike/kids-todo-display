@@ -4,14 +4,14 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#1a1a2e;color:#fff;font-family:'Segoe UI',Arial,sans-serif;
 display:flex;flex-direction:column;align-items:center;justify-content:center;
-min-height:100vh;padding:40px}
-h1{font-size:64px;margin-bottom:40px}
-.tasks{display:flex;flex-direction:column;gap:20px;width:80%;max-width:900px}
-.task{background:#16213e;border-radius:16px;padding:24px 32px;font-size:36px;
-display:flex;align-items:center;gap:20px}
-.task-num{background:#0f3460;border-radius:50%;width:50px;height:50px;
-display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
-.task-icon{font-size:40px}
+min-height:100vh;padding:20px}
+h1{font-size:48px;margin-bottom:24px}
+.tasks{display:flex;flex-direction:column;gap:10px;width:80%;max-width:900px}
+.task{background:#16213e;border-radius:12px;padding:14px 24px;font-size:28px;
+display:flex;align-items:center;gap:16px}
+.task-num{background:#0f3460;border-radius:50%;width:40px;height:40px;
+display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:22px}
+.task-icon{font-size:32px}
 </style></head><body>
 <h1>🏠 Today's Jobs 🏠</h1>
 <div class="tasks">
@@ -25,10 +25,35 @@ display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shr
   <div class="task"><span class="task-num">8</span><span class="task-icon">😴</span> 8-hour timer — SLEEP</div>
   <div class="task"><span class="task-num">⭐</span><span class="task-icon">💪</span> Stay awesome!</div>
 </div>
-<canvas id="k" width="1" height="1" style="position:fixed;top:0;left:0;opacity:0.01"></canvas>
+<!-- Screensaver prevention: video + canvas + mouse movement -->
+<video id="v" muted playsinline loop style="position:fixed;top:-1px;left:-1px;width:1px;height:1px;opacity:0.01"></video>
+<canvas id="k" width="2" height="2" style="position:fixed;top:0;left:0;opacity:0.01"></canvas>
 <script>
-// Screensaver prevention (canvas pixel trick)
+// Method 1: Canvas pixel changes every 10s
 var c=document.getElementById('k').getContext('2d');
-setInterval(function(){c.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16);c.fillRect(0,0,1,1);},30000);
+setInterval(function(){
+  c.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16).padStart(6,'0');
+  c.fillRect(0,0,2,2);
+},10000);
+
+// Method 2: Tiny video with generated frames (strongest anti-screensaver)
+try{
+  var v=document.getElementById('v');
+  var vc=document.createElement('canvas');vc.width=2;vc.height=2;
+  var vctx=vc.getContext('2d');
+  var stream=vc.captureStream(1);
+  v.srcObject=stream;
+  v.play().catch(function(){});
+  setInterval(function(){
+    vctx.fillStyle='#'+(Math.random()*0xFFFFFF<<0).toString(16).padStart(6,'0');
+    vctx.fillRect(0,0,2,2);
+  },5000);
+}catch(e){}
+
+// Method 3: Simulate user interaction via focus cycling
+setInterval(function(){
+  window.focus();
+  document.body.click();
+},15000);
 </script>
 </body></html>
